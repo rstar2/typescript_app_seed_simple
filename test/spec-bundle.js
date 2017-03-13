@@ -1,8 +1,3 @@
-/**
- * Inspired by @AngularClass
- * https://github.com/AngularClass/angular2-webpack-starter
- */
-
 /*
  * When testing with webpack and ES6, we have to do some extra
  * things get testing to work right. Because we are gonna write tests
@@ -13,8 +8,6 @@
  * all here! Crazy huh. So we need to do some setup
  */
 Error.stackTraceLimit = Infinity;
-
-require('aurelia-bootstrapper-webpack');
 
 /*
  * Ok, this is kinda crazy. We can use the the context method on

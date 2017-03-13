@@ -1,5 +1,5 @@
 
-class App {
+export class App {
 
   constructor() {
     console.log("App");
