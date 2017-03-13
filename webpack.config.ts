@@ -44,9 +44,12 @@ let config = generateConfig(
     },
 
     metadata: {
+      port: 9090,
+      root: rootDir, 
+      src: srcDir, 
+      
       title, 
-      baseUrl,
-      port: 9090
+      baseUrl
     }
   },
 
@@ -63,7 +66,7 @@ let config = generateConfig(
     envProd({ /* devtool: '...' */ }),
 
   typescript(ENV !== 'test' ? {} : { options: { doTypeCheck: false, sourceMap: false, inlineSourceMap: true, inlineSources: true } }),
-  html(),
+  html({ exclude: [path.join(srcDir, 'index.html')] }),
   css({ filename: 'styles.css', allChunks: true, sourceMap: false }),
   fontAndImages(),
   globalJquery(),
