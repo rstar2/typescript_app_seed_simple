@@ -11,6 +11,7 @@ import * as envDev from '@easy-webpack/config-env-development';
 import * as typescript from '@easy-webpack/config-typescript';
 import * as html from '@easy-webpack/config-html';
 import * as css from '@easy-webpack/config-css';
+import * as less from '@easy-webpack/config-less';
 import * as fontAndImages from '@easy-webpack/config-fonts-and-images';
 import * as globalJquery from '@easy-webpack/config-global-jquery';
 import * as generateIndexHtml from '@easy-webpack/config-generate-index-html';
@@ -67,6 +68,7 @@ let config = generateConfig(
 
   typescript(ENV !== 'test' ? {} : { options: { doTypeCheck: false, sourceMap: false, inlineSourceMap: true, inlineSources: true } }),
   html({ exclude: [path.join(srcDir, 'index.html')] }),
+  less({ filename: 'less.css', allChunks: true, sourceMap: false }),
   css({ filename: 'styles.css', allChunks: true, sourceMap: false }),
   fontAndImages(),
   globalJquery(),

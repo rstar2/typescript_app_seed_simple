@@ -1,5 +1,8 @@
-﻿import './styles/styles.css';
+﻿// import normal CSS styles
+import './styles/styles.css';
 
-import { App } from './app/app';
+// import LESS styles
+import './styles/styles.less';
 
-new App();
+// import the real app
+import './app/app';

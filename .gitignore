@@ -9,3 +9,5 @@ npm-debug.log*
 /release
 /test/coverage
 yarn.lock
+
+.vscode/symbols.json
