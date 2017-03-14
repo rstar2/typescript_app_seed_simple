@@ -67,7 +67,7 @@ let config = generateConfig(
     envProd({ /* devtool: '...' */ }),
 
   typescript(ENV !== 'test' ? {} : { options: { doTypeCheck: false, sourceMap: false, inlineSourceMap: true, inlineSources: true } }),
-  html({ exclude: [path.join(srcDir, 'index.html')] }),
+  html({ exclude: [path.resolve(srcDir, 'index.html')] }),
   less({ filename: 'less.css', allChunks: true, sourceMap: false }),
   css({ filename: 'styles.css', allChunks: true, sourceMap: false }),
   fontAndImages(),
