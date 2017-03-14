@@ -10,4 +10,4 @@ npm-debug.log*
 /test/coverage
 yarn.lock
 
-.vscode/symbols.json
+/.vscode/symbols.json

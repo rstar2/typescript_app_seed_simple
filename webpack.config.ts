@@ -68,8 +68,8 @@ let config = generateConfig(
 
   typescript(ENV !== 'test' ? {} : { options: { doTypeCheck: false, sourceMap: false, inlineSourceMap: true, inlineSources: true } }),
   html({ exclude: [path.resolve(srcDir, 'index.html')] }),
-  less({ filename: 'less.css', allChunks: true, sourceMap: false }),
   css({ filename: 'styles.css', allChunks: true, sourceMap: false }),
+  less({ filename: 'styles2.css', allChunks: true, sourceMap: false }),
   fontAndImages(),
   globalJquery(),
   generateIndexHtml({minify: ENV === 'production',
