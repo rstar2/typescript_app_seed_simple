@@ -1,12 +1,11 @@
-import {browser, element, by, By, $, $$, ExpectedConditions} from 'aurelia-protractor-plugin/protractor';
+import {browser, element, by, By, $, $$, ExpectedConditions} from 'protractor';
 
-export class PageObject_Skeleton {
+export class PageHome {
 
   constructor() {
-
   }
 
-  getCurrentPageTitle() {
+  getTitle() {
     return browser.getTitle();
   }
 

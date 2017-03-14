@@ -49,7 +49,8 @@
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
-    "moment": "^2.17.1"
+    "moment": "^2.17.1",
+    "navigo": "^4.1.2"
   },
   "devDependencies": {
     "@easy-webpack/config-common-chunks-simple": "^2.0.3",
@@ -70,6 +71,7 @@
     "@easy-webpack/config-uglify": "^2.2.3",
     "@easy-webpack/core": "^2.0.0",
     "@types/jasmine": "^2.5.38",
+    "@types/navigo": "^4.0.0",
     "@types/node": "^6.0.48",
     "@types/webpack": "^2.0.0",
     "concurrently": "^3.1.0",

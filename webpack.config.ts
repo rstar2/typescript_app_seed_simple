@@ -45,11 +45,9 @@ let config = generateConfig(
     },
 
     metadata: {
-      port: 9090,
-      root: rootDir, 
-      src: srcDir, 
-      
-      title, 
+      // root: rootDir,
+      // src: srcDir,
+      title,
       baseUrl
     }
   },
