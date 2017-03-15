@@ -5,4 +5,7 @@ import './styles/styles.css';
 import './styles/styles.less';
 
 // import the real app
-import './app/app';
+import { App } from './app/app';
+
+// start the app
+new App();
