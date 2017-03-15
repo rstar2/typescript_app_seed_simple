@@ -23,13 +23,13 @@ describe('Home page', function () {
 
   it('should refresh properly', (done) => {
     browser.navigate().refresh();
-    pageHome.expectAt(done);
+    pageHome.expectAt().then(done, done.fail);
   });
 
   it('should navigate to "about" page', (done) => {
     pageHome.navigateTo('about');
     expect(pageHome.getContent()).toBe('About'.toUpperCase());
-    pageAbout.expectAt(done);
+    pageAbout.expectAt().then(done, done.fail);
   });
 });
 
@@ -43,23 +43,13 @@ describe('About page', function () {
     expect(pageAbout.getContent()).toBe('About'.toUpperCase());
   });
 
-  xit('should automatically write down the fullname', () => {
-    pageAbout.setFirstname('Rob');
-    pageAbout.setLastname('Eisenberg');
-
-    // For now there is a timing issue with the binding.
-    // Until resolved we will use a short sleep to overcome the issue.
-    browser.sleep(200);
-    expect(pageAbout.getFullname()).toBe('ROB EISENBERG');
+  it('should navigate to "home" page', (done) => {
+    pageAbout.navigateTo('/');
+    expect(pageAbout.getContent()).toBe('Home'.toUpperCase());
+    pageHome.expectAt().then(done, done.fail);
   });
 
   xit('should show alert message when clicking submit button', () => {
     expect(pageAbout.openAlertDialog()).toBe(true);
-  });
-
-  it('should navigate to "home" page', (done) => {
-    pageAbout.navigateTo('/');
-    expect(pageAbout.getContent()).toBe('Home'.toUpperCase());
-    pageHome.expectAt(done);
   });
 });

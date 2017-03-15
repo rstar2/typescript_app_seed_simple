@@ -39,17 +39,14 @@ export abstract class PageObject {
 
   /* expect methods */
 
-  expectAt(done?: Function) {
+  // use async/await - so the function returns a Promise
+  async expectAt(): Promise<any> {
     const regex = new RegExp(this.path.replace(/:[\w\-]+/g, '[^\/]+'));
 
-    browser.getCurrentUrl().then(url => {
-      console.log('Current Page : ' + url);
-      expect(url).toMatch(regex);
-      if (done) {
-        done();
-      }
-    });
+    let url = await browser.getCurrentUrl();
 
+    console.log('Current Page : ' + url);
+    expect(url).toMatch(regex);
   }
 
 }
