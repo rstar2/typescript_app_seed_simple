@@ -60,7 +60,7 @@ let config = generateConfig(
    * For Webpack docs, see: https://webpack.js.org/configuration/
    */
 
-  ENV === 'test' || ENV === 'development' ? 
+  ENV === 'test' || ENV === 'development' ?
     envDev(ENV !== 'test' ? {} : {devtool: 'inline-source-map'}) :
     envProd({ /* devtool: '...' */ }),
 

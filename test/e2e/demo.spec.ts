@@ -3,13 +3,9 @@ import { PageAbout } from './pages/about.po';
 
 import { browser, element, by, By, $, $$, ExpectedConditions } from 'protractor';
 
-// our app is not Angular, so we havce to turn off waiting for Angular by setting
-browser.ignoreSynchronization = true;
-
 // define our page objects
 const pageHome = new PageHome();
 const pageAbout = new PageAbout();
-
 
 describe('Home page', function () {
 

@@ -27,7 +27,10 @@ exports.config = {
     }
   },
 
-  onPrepare: function() {
+  onPrepare: function () {
     require('ts-node').register({ compilerOptions: { module: 'commonjs' }, disableWarnings: true, fast: true });
+
+    // our app is not Angular, so we have to turn off waiting for Angular by setting
+    browser.ignoreSynchronization = true;
   }
 };
