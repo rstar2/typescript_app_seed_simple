@@ -1,23 +1,16 @@
-import {browser, element, by, By, $, $$, ExpectedConditions} from 'protractor';
+import { browser, element, by, By, $, $$, ExpectedConditions } from 'protractor';
 
-export class PageAbout {
+import { PageObject } from './page-object';
 
-  getGreeting() {
-    return element(by.tagName('h2')).getText();
+export class PageAbout extends PageObject {
+
+  constructor() {
+    super('about');
   }
 
   setFirstname(value) {
     let firstName = element(by.valueBind('firstName'));
     return firstName.clear().then(() => firstName.sendKeys(value));
-  }
-
-  setLastname(value) {
-    let lastName = element(by.valueBind('lastName'));
-    return lastName.clear().then(() => lastName.sendKeys(value));
-  }
-
-  getFullname() {
-    return element(by.css('.help-block')).getText();
   }
 
   pressSubmitButton() {
@@ -32,8 +25,8 @@ export class PageAbout {
 
       return browser.switchTo().alert().then(
         // use alert.accept instead of alert.dismiss which results in a browser crash
-        function(alert) { alert.accept(); return true; },
-        function() { return false; }
+        function (alert) { alert.accept(); return true; },
+        function () { return false; }
       );
     });
   }

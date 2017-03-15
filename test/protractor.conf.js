@@ -3,7 +3,7 @@ exports.config = {
 
   // use `npm run e2e`
   specs: [
-    'e2e/**/*.ts'
+    'e2e/**/*.spec.ts'
   ],
   exclude: [],
 
