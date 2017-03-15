@@ -6,16 +6,22 @@ export class AppRouter {
   // See https://www.npmjs.com/package/navigo
   private router: Navigo;
 
+  // more powerful "simple" client routers
+  // https://github.com/flatiron/director
+
+  // router similar to Express router in NodeJS
+  // https://github.com/visionmedia/page.js
+
   constructor() {
     this.router = new Navigo(null, false);
     this.router
       .on({   // adding multiple routes at once
-        'products/:id': (params) => {
+        '/products/:id': (params) => {
           // The order of routes adding do matter.
           // The URL which is added earlier and matches wins.
           this.setContent('Products id=' + params.id);
         },
-        'products': () => {
+        '/products': () => {
           this.setContent('Products List');
         },
         '/user/:id/:action': (params, query) => {
@@ -25,22 +31,32 @@ export class AppRouter {
           // query = answer=yes
           this.setContent('User id=' + params.id + (query ? 'query=' + query : ''));
         },
+        '/user': () => {
+          this.setContent('User deault');
+        },
         '/user/*': () => {
           // This function will be called on every 
           // URL that starts with /user
-          this.setContent('User deault');
+          this.setContent('User specific');
         }
       })
-      .on('*', () => {   // adding single route
-        this.setContent('Others');
+      .on('/about', () => {   // adding single route handler
+        this.setContent('About');
       })
-      .on(() => {  // default/home route
+      // .on('/*', () => {   // adding "all"-handler route
+      //   // if present it will handle the "default/root/" route also
+      //   this.setContent('Others');
+      // })
+      .on(() => {  //  default-handler - second way
+        // if present a "all"-handler ('*') then it will be used, not this one
         this.setContent('Home');
       })
       .notFound((query) => {
+        // if present a "all"-handler ('*') or default-handler ('/')
+        // then this will never be used
+
         // In the case of the default handler and notFound handler 
         // the function receives only query as parameter
-        // ... 
         this.setContent('NOTHING TO SHOW');
       });
 
@@ -74,7 +90,7 @@ export class AppRouter {
 
     // named routes
     let handler = () => {
-      this.setContent('Trip :' + window.location.href);
+      this.setContent('Trip to ' + window.location.href);
     };
     this.router.on({
       '/trip/:tripId/edit': { as: 'trip.edit', uses: handler },
@@ -87,6 +103,13 @@ export class AppRouter {
 
     // have to run resolve method manually to get the routing works.
     this.router.resolve();
+
+
+    // add manual routing to links
+    $('#tripAction').on('click', (e) => {
+      e.preventDefault();
+      this.router.navigate(this.router.generate('trip.edit', { tripId: 42 }));
+    });
   }
 
   navigateTo(url = '/', isAbsract = false, isPaused = false) {
