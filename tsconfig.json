@@ -7,15 +7,17 @@
     "strictNullChecks": true,
     "moduleResolution": "node",
     "sourceMap": true,
-    "allowJs": true,
-    "compileOnSave": false,
     "lib": [
       "es6", "dom"
     ]
   },
+  "typeRoots": [
+    "./node_modules/@types"
+  ],
   "awesomeTypescriptLoaderOptions": {
     "forkChecker": true
   },
+  "compileOnSave": false,
   "exclude": [
     "node_modules",
     "dist",

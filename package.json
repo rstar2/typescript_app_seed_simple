@@ -71,7 +71,7 @@
     "@easy-webpack/config-uglify": "^2.2.3",
     "@easy-webpack/core": "^2.0.0",
     "@types/jasmine": "^2.5.38",
-    "@types/jquery": "^2.0.41",
+    "@types/jquery": "^3.2.5",
     "@types/navigo": "^4.0.0",
     "@types/node": "^6.0.48",
     "@types/webpack": "^2.0.0",
