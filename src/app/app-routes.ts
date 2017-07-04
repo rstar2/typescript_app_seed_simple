@@ -13,7 +13,10 @@ export class AppRouter {
   // https://github.com/visionmedia/page.js
 
   constructor() {
-    this.router = new Navigo(null, false);
+    const root = null;
+    const useHash = false; // Defaults to: false
+    const hash = '#!'; // Defaults to: '#'
+    this.router = new Navigo(root, useHash /*, hash - missing in the current @types/navigo*/);
     this.router
       .on({   // adding multiple routes at once
         '/products/:id': (params) => {
